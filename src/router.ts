@@ -7,15 +7,15 @@ import edit from "./controllers/edit-";
 import get from "./controllers/get-";
 import remove from "./controllers/remove-";
 
-const basepath = "/chats";
+const basepath = "/";
 
 const router = (app: Express) => {
   app.use(logRequest);
 
-  app.post(`${basepath}/:threadId`, VerifyAPIKey, add);
-  app.patch(`${basepath}/:chatId`, VerifyAPIKey, edit);
-  app.get(`${basepath}/:threadId`, VerifyAPIKey, get);
-  app.delete(`${basepath}/:chatId`, VerifyAPIKey, remove);
+  app.post(`${basepath}/:Id`, VerifyAPIKey, add);
+  app.patch(`${basepath}/:Id`, VerifyAPIKey, edit);
+  app.get(`${basepath}/:Id`, VerifyAPIKey, get);
+  app.delete(`${basepath}/:Id`, VerifyAPIKey, remove);
 }
 
 export default router;
