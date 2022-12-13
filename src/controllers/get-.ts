@@ -1,8 +1,7 @@
-import { Request, Response } from "express";
-import ServerResponse from "../helpers/server-response";
-import logger from "../helpers/logger";
+import { NextFunction, Request, Response } from "express";
+import { logger, ServerResponse } from "../helpers";
 
-export default async (req: Request, res: Response) => {
+export default async (req: Request, res: Response, next: NextFunction) => {
   try {
     ServerResponse(res, 200);
   } catch (e) {
