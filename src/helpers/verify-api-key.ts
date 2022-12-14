@@ -1,24 +1,16 @@
 import { Request, Response, NextFunction } from "express";
-import ServerResponse from "./server-response";
 import logger from "./logger";
 
 const API_KEY = process.env.API_KEY ?? "";
 
-const VerifyAPIKey = (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
+const VerifyAPIKey = (req: Request, res: Response, next: NextFunction) => {
   try {
     const apiKey = req.headers["api-key"];
-    if (
-      !apiKey ||
-      typeof apiKey !== "string" ||
-      apiKey !== API_KEY
-    ) return ServerResponse(res, 401, { error: "Invalid API Key" });
+    if (!apiKey || apiKey !== API_KEY)
+      return res.status(401).end();
     next();
   } catch (e) {
-    ServerResponse(res, 500);
+    res.status(500).end();
     logger.error("Exception in helper verify-api-key.ts", e);
   }
 }
