@@ -1,3 +1,4 @@
+export { default as Controller } from "./controller";
 export { default as LogRequest } from "./log-request";
 export { default as logger } from "./logger";
 export { default as ServerResponse } from "./server-response";
