@@ -9,7 +9,6 @@
   "devDependencies": {
     "@types/express": "^4.17.14",
     "@types/jsonwebtoken": "^8.5.9",
-    "aws-sdk": "^2.1273.0",
     "jsonwebtoken": "^8.5.1"
   },
   "dependencies": {
