@@ -1,11 +1,10 @@
-import { NextFunction, Request, Response } from "express";
-import { logger, ServerResponse } from "../helpers";
+import { Controller, logger } from "../helpers";
 
-export default async (req: Request, res: Response, next: NextFunction) => {
+export default new Controller(async (req, res, next) => {
   try {
-    ServerResponse(res, 204);
+    return ({ status: 200 });
   } catch (e) {
-    ServerResponse(res, 500);
     logger.error("Exception in controller remove-.ts:", e);
+    return ({ status: 500 });
   }
-}
+})
