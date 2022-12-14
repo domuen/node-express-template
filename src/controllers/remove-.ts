@@ -1,6 +1,6 @@
 import { Controller, logger } from "../helpers";
 
-export default new Controller(async (req, res, next) => {
+export default Controller(async (req, res, next) => {
   try {
     return ({ status: 200 });
   } catch (e) {
