@@ -10,12 +10,12 @@ import remove from "./controllers/remove-";
 const basepath = (route?: string): string => `/${route}`;
 
 const router = (app: Express) => {
-  app.use(logRequest);
+  app.use(VerifyAPIKey, logRequest);
 
-  app.post(basepath(), VerifyAPIKey, add);
-  app.patch(basepath("/:Id"), VerifyAPIKey, edit);
-  app.get(basepath("/:Id"), VerifyAPIKey, get);
-  app.delete(basepath("/:Id"), VerifyAPIKey, remove);
+  app.post(basepath(), add);
+  app.patch(basepath("/:Id"), edit);
+  app.get(basepath("/:Id"), get);
+  app.delete(basepath("/:Id"), remove);
 }
 
 export default router;
